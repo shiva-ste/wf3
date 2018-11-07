@@ -6,6 +6,8 @@ var x = parseInt( Math.random() * 100 );
 c(x);
 var y = parseInt( Math.random() * 100 ); 
 c(y); 
+var almostX = 'false';
+var almostY = 'false';
 
 document.body.style.fontFamily = 'arial'; 
 
@@ -36,11 +38,12 @@ div.style.display = ('block');
 div.style.position = ('absolute');
 div.style.top = ( h + 'vh');
 div.style.left = ( w + 'vw');
-div.style.width = ('1rem');
-div.style.height = ('1rem');
-div.style.backgroundColor = ('black');
+div.style.width = ('2rem');
+div.style.height = ('2rem');
+div.style.backgroundColor = ('rgba(125, 125 ,125 , 0.5)');
 div.style.border = ('1px solid Red');
 div.style.borderRadius = ('1rem');
+div.style.margin = ('-1rem 0 0 -1rem');
 
 var mouse = document.createElement('div');
 document.body.appendChild(mouse); 
@@ -104,12 +107,24 @@ switch (evt.keyCode) {
     c(h);
     break;
 };
-}
 
-if ( x == w ){
-    alert('ok x');
-}
+if ( ( parseInt(x) >= ( parseInt(h) - 2 ) ) && ( parseInt(x) <= ( parseInt(h) + 2 ) ) ) {
+    var almostX = 'true';
+};
+if ( ( parseInt(y) >= ( parseInt(w) - 2 ) ) && ( parseInt(y) <= ( parseInt(w) + 2 ) ) ) {
+    var almostY = 'true';
+};
+if ( almostX == 'true' && almostY == 'true') {
+    alert('Yo!');
+};
+// if ( parseInt(x) == parseInt(h) ) {
+//     var almostX = 'true';
+// };
+// if ( parseInt(y) == parseInt(w) ) {
+//     var almostY = 'true';
+// };
+// if ( almostX == 'true' && almostY == 'true') {
+//     alert('Yo!');
+// };
 
-if ( y == h){
-    alert('ok y')
 }

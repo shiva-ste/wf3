@@ -33,7 +33,7 @@ a.innerHTML = ('<a href="99-TestJeux.html">version carnivore</a>');
 var div = document.createElement('div'); 
 a.appendChild(div); 
 div.style.display = ('block');
-div.style.position = ('absolute');
+// div.style.position = ('absolute');
 div.style.top = ( h + 'vh');
 div.style.left = ( w + 'vw');
 div.style.width = ('1rem');
