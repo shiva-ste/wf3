@@ -1,6 +1,6 @@
-#######################################
-# Exercice et projets chez WebForce3  #
-#######################################
+########################################
+# Exercices et projets chez WebForce3  #
+########################################
 
 Formation Intégrateur développeur Web
 HTML 
