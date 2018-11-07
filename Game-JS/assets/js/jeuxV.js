@@ -6,6 +6,10 @@ var x = parseInt( Math.random() * 100 );
 c(x);
 var y = parseInt( Math.random() * 100 ); 
 c(y); 
+var almostX = 'false';
+var almostY = 'false';
+
+var again = null ;
 
 document.body.style.fontFamily = 'arial'; 
 
@@ -31,14 +35,15 @@ a.style.right = ('1rem');
 a.innerHTML = ('<a href="99-TestJeux.html">version carnivore</a>'); 
 
 var div = document.createElement('div'); 
-a.appendChild(div); 
+document.body.appendChild(div); 
 div.style.display = ('block');
-// div.style.position = ('absolute');
+div.style.position = ('absolute');
+div.style.zIndex = ('2');
 div.style.top = ( h + 'vh');
 div.style.left = ( w + 'vw');
 div.style.width = ('1rem');
 div.style.height = ('1rem');
-div.style.backgroundColor = ('black');
+div.style.backgroundColor = ('rgba(125, 125 ,125 , 0.5)');
 div.style.border = ('1px solid Red');
 div.style.borderRadius = ('1rem');
 
@@ -72,6 +77,7 @@ corp2.style.marginTop = '-2rem';
 
 carrot.id = "carrot"; 
 carrot.style.display = 'block';
+carrot.style.zIndex = '1';
 carrot.style.position = ('absolute');
 carrot.style.top = ( x + 'vh');
 carrot.style.left = ( y + 'vw');
@@ -102,30 +108,40 @@ document.onkeydown = function(evt) {
 switch (evt.keyCode) {
     case 37:
     moveLeft();
-    c(w);
+    // c(w);
     break;
 
     case 38:
     moveUp();
-    c(h);
+    // c(h);
     break;
 
     case 39:
     moveRight();
-    c(w);
+    // c(w);
     break;
 
     case 40:
     moveDown();
-    c(h);
+    // c(h);
     break;
 };
-}
 
-if ( x == w ){
-    alert('ok x');
-}
-
-if ( y == h){
-    alert('ok y')
+if ( ( parseInt(x) >= ( parseInt(h) ) ) && ( parseInt(x) <= ( parseInt(h) + 2 ) ) ) {
+    var almostX = 'true';
+};
+if ( ( parseInt(y) >= ( parseInt(w) ) ) && ( parseInt(y) <= ( parseInt(w) + 2 ) ) ) {
+    var almostY = 'true';
+};
+if ( almostX == 'true' && almostY == 'true') {
+    var again = prompt(`Yes you did it !
+Would you like to play again ? `);    
+};
+if ( again != null ) {
+    if ( again == 'y' || again == 'Y' || again == 'yes' || again == 'o' || again == 'O' || again == 'oui' ) {
+        location.reload(); 
+    } else {
+        alert('Thanks for trying ! ');
+    }
+}; 
 }

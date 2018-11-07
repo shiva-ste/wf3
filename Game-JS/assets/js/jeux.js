@@ -9,6 +9,8 @@ c(y);
 var almostX = 'false';
 var almostY = 'false';
 
+var again = null ;
+
 document.body.style.fontFamily = 'arial'; 
 
 var a = document.createElement('a');
@@ -38,12 +40,12 @@ div.style.display = ('block');
 div.style.position = ('absolute');
 div.style.top = ( h + 'vh');
 div.style.left = ( w + 'vw');
-div.style.width = ('2rem');
-div.style.height = ('2rem');
+div.style.width = ('1rem');
+div.style.height = ('1rem');
 div.style.backgroundColor = ('rgba(125, 125 ,125 , 0.5)');
 div.style.border = ('1px solid Red');
 div.style.borderRadius = ('1rem');
-div.style.margin = ('-1rem 0 0 -1rem');
+// div.style.margin = ('-1rem 0 0 -1rem');
 
 var mouse = document.createElement('div');
 document.body.appendChild(mouse); 
@@ -59,6 +61,7 @@ tail.style.paddingLeft = '2rem';
 
 mouse.id = "mouse"; 
 mouse.style.display = 'block';
+mouse.style.backgroundColor = ('rgba(125,125,125,0.7');
 mouse.style.position = ('absolute');
 mouse.style.top = ( x + 'vh');
 mouse.style.left = ( y + 'vw');
@@ -89,42 +92,41 @@ document.onkeydown = function(evt) {
 switch (evt.keyCode) {
     case 37:
     moveLeft();
-    c(w);
+    // c(w);
     break;
 
     case 38:
     moveUp();
-    c(h);
+    // c(h);
     break;
 
     case 39:
     moveRight();
-    c(w);
+    // c(w);
     break;
 
     case 40:
     moveDown();
-    c(h);
+    // c(h);
     break;
 };
 
-if ( ( parseInt(x) >= ( parseInt(h) - 2 ) ) && ( parseInt(x) <= ( parseInt(h) + 2 ) ) ) {
+if ( ( parseInt(x) >= ( parseInt(h) ) ) && ( parseInt(x) <= ( parseInt(h) + 2 ) ) ) {
     var almostX = 'true';
 };
-if ( ( parseInt(y) >= ( parseInt(w) - 2 ) ) && ( parseInt(y) <= ( parseInt(w) + 2 ) ) ) {
+if ( ( parseInt(y) >= ( parseInt(w) ) ) && ( parseInt(y) <= ( parseInt(w) + 2 ) ) ) {
     var almostY = 'true';
 };
 if ( almostX == 'true' && almostY == 'true') {
-    alert('Yo!');
+    var again = prompt(`Yes you did it !
+Would you like to play again ? `);    
 };
-// if ( parseInt(x) == parseInt(h) ) {
-//     var almostX = 'true';
-// };
-// if ( parseInt(y) == parseInt(w) ) {
-//     var almostY = 'true';
-// };
-// if ( almostX == 'true' && almostY == 'true') {
-//     alert('Yo!');
-// };
+if ( again != null ) {
+    if ( again == 'y' || again == 'Y' || again == 'yes' || again == 'o' || again == 'O' || again == 'oui' ) {
+        location.reload(); 
+    } else {
+        alert('Thanks for trying ! ');
+    }
+}; 
 
 }
