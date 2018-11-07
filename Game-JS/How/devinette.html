@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Jeu de devinette</title>
+</head>
+
+<body>
+    <script>
+    /* 
+    Activité : jeu de devinette
+    */
+    console.log("Bienvenue dans ce jeu de devinette !");
+    // Cette ligne génère aléatoirement un nombre entre 1 et 100
+    var solution = Math.floor(Math.random() * 100) + 1;
+
+    // Décommentez temporairement cette ligne pour mieux vérifier le programme
+    //console.log("(La solution est " + solution + ")");
+
+    // TODO : complétez le programme
+
+    var essai ;
+    var direction ;
+    var retour ;
+
+    for (let i = 0 ; i < 7 ; i++ ){
+        if ( i == 0 ){
+            essai = prompt( `Devinez le nombre compris entre 0 et 100
+                        vous avez ` + ( 6 - i ) + ` essais`);
+        } else {
+            if ( i < 6 ) {
+                if ( essai < solution ) {
+                    console.log( essai + ` est trop petit
+            il vous reste ` + ( 6 - i ) + ' essais') ;
+                    direction = 'petit';
+                } else {
+                    if ( essai == solution ){
+                        console.log( essai + ' est bien la solution :)');
+                        console.log( 'Gagné en ' + (i) + ' essais' );
+                        retour = prompt( essai + ' est bien la solution :)' + ` 
+                        Gagné en ` + (i) + ' essais ' + ` 
+                        voulez vous essayer à nouveau ? `);
+                if ( retour == 'oui' || retour == 'o' || retour == 'yes' || retour == 'y' ){
+                    console.clear();
+                    document.location.reload();
+                } else {
+                    alert('seeYouSoon(); ')
+                }
+                    }
+                    console.log( essai + ` est trop grand
+            il vous reste ` + ( 6 - i ) + ' essais') ;
+                    direction = 'grand';
+                }
+                
+            } else {
+                console.log( 'Perdu la solution était ' + solution );
+                retour = prompt( 'Perdu la solution était ' + solution + ` 
+                voulez vous essayer à nouveau ? `);
+                if ( retour == 'oui' || retour == 'o' || retour == 'yes' || retour == 'y' ){
+                    console.clear();
+                    document.location.reload();
+                } else {
+                    alert('seeYouSoon(); ')
+                }
+            }
+            essai = prompt( `Devinez le nombre compris entre 0 et 100
+                        vous avez encore ` + ( 6 - i ) + ` essais
+                        
+                        ` + essai + ` est trop ` + direction );
+        }
+    }
+    </script>
+</body>
+
+</html>
