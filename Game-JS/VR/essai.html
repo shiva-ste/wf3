@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360&deg; Image</title>
+    <meta name="description" content="360&deg; Image - A-Frame">
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <style>
+    .base{
+      position: absolute; 
+      /* z-index: 2; */
+      margin: 0 auto;
+      left: 50%; 
+      transform: translateX(-50%);
+
+    }
+    img{
+      position: relative; 
+      height: 100vh;
+      width: auto;
+      
+    }
+    .fond{
+      z-index: 1;
+    }
+    .box{
+      z-index: 3; 
+    }
+    </style>
+
+
+  </head>
+  <body>
+    <div class="base">
+      <img src="./build/img/Necker-Cube-Illusion.svg" alt="">
+    </div>
+
+    <a-scene >
+      
+      <!-- <a-sky class="fond" src="R0010215.JPG" rotation="0 0 0" ></a-sky> -->
+      
+      <a-entity>
+          <a-camera fov="100" near="1.1" ></a-camera>
+        <a-box class="box" position="0 -0.4 -2.25" rotation="-25 -135 -25" scale="0.55 0.55 0.55" geometry="primitive: box; width: 1; " color="#4CC3D9"></a-box>
+        <!-- <a-plane rotation="55 -3 40" scale="0.8 0.8 0.8" position="0 -0.7 -2" color="#333"></a-plane>
+        <a-plane rotation="0 -63 180" scale="0.8 0.8 0.8" position="0.25 -0.25 -2" color="#666"></a-plane>
+        <a-plane rotation="-1.6 61 92" scale="0.8 0.8 0.8" position="-0.25 -0.25 -2" color="#fff"></a-plane> -->
+      </a-entity>
+
+    </a-scene>
+    
+
+</body>
+</html>
